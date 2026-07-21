@@ -261,4 +261,51 @@ DJ Nico (italia), DJ One (España), Mc Aridstyle (México), Susana Barrientos (C
     }
   </script>
 </body>
+  <!-- ... Aquí termina la estructura de tu flyer y tus modales ... -->
+
+    <!-- ======================================================= -->
+    <!-- REPRODUCTOR Y BOTÓN FLOTANTE DE MÚSICA (AGREGAR AQUÍ) -->
+    <!-- ======================================================= -->
+    <audio id="bgMusic" loop preload="auto">
+      <!-- Asegúrate de subir tu archivo MP3 al mismo directorio o poner la URL exacta -->
+      <source src="bachata.mp3" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Botón Flotante en la esquina inferior derecha -->
+    <button id="musicToggleBtn" onclick="toggleAudio()" 
+            class="fixed bottom-4 right-4 z-50 bg-pink-600 hover:bg-pink-500 text-white p-3.5 rounded-full shadow-2xl border border-pink-400/50 transition-all duration-300 flex items-center justify-center gap-2 group">
+      <i id="musicIcon" data-lucide="music" class="w-5 h-5 animate-pulse"></i>
+      <span id="musicText" class="text-xs font-bold pr-1 hidden sm:inline">Música</span>
+    </button>
+    <!-- ======================================================= -->
+
+    <!-- Tus scripts existentes y el nuevo de control de audio -->
+    <script>
+      lucide.createIcons();
+
+      // Función para controlar la música (Play / Pausa)
+      function toggleAudio() {
+        const audio = document.getElementById('bgMusic');
+        const icon = document.getElementById('musicIcon');
+        const text = document.getElementById('musicText');
+
+        if (audio.paused) {
+          audio.play();
+          icon.setAttribute('data-lucide', 'pause');
+          text.innerText = "Pausar";
+          document.getElementById('musicToggleBtn').classList.add('bg-purple-600', 'scale-105');
+        } else {
+          audio.pause();
+          icon.setAttribute('data-lucide', 'music');
+          text.innerText = "Música";
+          document.getElementById('musicToggleBtn').classList.remove('bg-purple-600', 'scale-105');
+        }
+        lucide.createIcons();
+      }
+
+      // ... Tus funciones de modales existentes (toggleModal, Swiper, etc.) ...
+    </script>
+
+</body>
 </html>
