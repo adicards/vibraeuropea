@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibra Europea - Bachata Night</title>
+  <!-- CDN Tailwind CSS para estilos rápidos y responsivos -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Iconos Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .glow-pink {
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans min-h-screen flex justify-center items-center p-2 sm:p-4">
+
+  <!-- Contenedor Principal (Formato Flyer Móvil) -->
+  <div class="max-w-md w-full bg-zinc-950 border border-pink-900/50 rounded-2xl overflow-hidden shadow-2xl relative">
+    
+    <!-- Imagen del Flyer -->
+    <div class="relative">
+      <img src="TU_IMAGEN_DEL_FLYER.jpg" alt="Vibra Europea Bachata Night" class="w-full h-auto block">
+      <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent"></div>
+    </div>
+
+    <!-- Contenido e Interacción -->
+    <div class="p-5 space-y-5 -mt-6 relative z-10">
+      
+      <!-- Descripción Corta Recomendada (Max 250 caracteres) -->
+      <div class="bg-zinc-900/80 border border-pink-500/20 rounded-xl p-3.5 text-center backdrop-blur-sm">
+        <p class="text-xs sm:text-sm text-gray-200 leading-relaxed">
+          ¡Una noche de Bachata imperdible en Cancún! Disfruta de clase, shows en vivo y social con artistas de Italia, España, Lituania, Colombia y México.
+        </p>
+      </div>
+
+      <!-- Botones Principales Solicitados -->
+      <div class="flex flex-col gap-3">
+        
+        <!-- Botón 1: Instagram -->
+        <a href="https://instagram.com/TU_PERFIL" target="_blank" 
+           class="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 hover:opacity-90 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 shadow-md">
+          <i data-lucide="instagram" class="w-5 h-5"></i>
+          <span>Síguenos en Instagram</span>
+        </a>
+
+        <!-- Botón 2: Comunicación Directa (WhatsApp) -->
+        <a href="https://wa.me/529982031796?text=Hola,%20quiero%20más%20información%20sobre%20Vibra%20Europea" target="_blank" 
+           class="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 shadow-md">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          <span>Comunícate con Nosotros</span>
+        </a>
+
+        <!-- Botón 3: Método de Pago (Abre Modal / Pop-up) -->
+        <button onclick="toggleModal(true)" 
+                class="flex items-center justify-center gap-2 bg-pink-600 hover:bg-pink-500 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 glow-pink">
+          <i data-lucide="credit-card" class="w-5 h-5"></i>
+          <span>Ver Métodos de Pago</span>
+        </button>
+
+      </div>
+
+      <!-- Footer Info -->
+      <div class="text-center pt-2 border-t border-zinc-800">
+        <p class="text-[10px] text-gray-500 uppercase tracking-widest">
+          Sábado 8 de Agosto • Restaurante Hongkong Cancún
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL / POP-UP PARA LA IMAGEN DE MÉTODOS DE PAGO -->
+  <div id="paymentModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-zinc-900 border border-pink-500/30 rounded-2xl p-4 max-w-sm w-full relative space-y-4">
+      
+      <!-- Encabezado Modal -->
+      <div class="flex justify-between items-center pb-2 border-b border-zinc-800">
+        <h3 class="text-sm font-bold text-pink-400">Métodos de Pago / Datos Bancarios</h3>
+        <button onclick="toggleModal(false)" class="text-gray-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Imagen que te va a pasar el cliente -->
+      <div class="rounded-lg overflow-hidden bg-zinc-950 border border-zinc-800">
+        <img src="RUTA_DE_LA_IMAGEN_DE_PAGO.jpg" alt="Métodos de Pago" class="w-full h-auto">
+      </div>
+
+      <!-- Botón Cerrar -->
+      <button onclick="toggleModal(false)" class="w-full py-2 bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold rounded-lg">
+        Cerrar
+      </button>
+    </div>
+  </div>
+
+  <!-- Script para iconos y funcionamiento del modal -->
+  <script>
+    lucide.createIcons();
+
+    function toggleModal(show) {
+      const modal = document.getElementById('paymentModal');
+      if (show) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
